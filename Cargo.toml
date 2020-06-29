@@ -1,0 +1,15 @@
+[package]
+name = "corncrib"
+version = "0.0.1"
+edition = "2018"
+authors = ["Jesse Laning <jesse@jlaning.com>"]
+license = "MIT OR Apache-2.0"
+description = "Rust db library"
+homepage = "https://github.com/jamolnng/corncrib"
+documentation = "https://github.com/jamolnng/corncrib"
+repository = "https://github.com/jamolnng/corncrib"
+readme = "Readme.md"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
