@@ -13,3 +13,11 @@ readme = "Readme.md"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[lib]
+name = "corncrib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "corncrib"
+path = "examples/main.rs"
