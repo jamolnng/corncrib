@@ -13,7 +13,7 @@ pub struct Error {
 
 #[derive(Debug, Clone)]
 pub enum ErrorKind {
-  IO(std::io::ErrorKind),
+  IO(String),
   DoesNotExist,
   DirectoryError,
   InvalidEntry,
@@ -47,7 +47,7 @@ impl Error {
 impl From<std::io::Error> for Error {
   fn from(error: std::io::Error) -> Self {
     Error {
-      kind: ErrorKind::IO(error.kind()),
+      kind: ErrorKind::IO(error.to_string()),
     }
   }
 }
@@ -140,7 +140,7 @@ impl Database {
       }
       Err(err) => {
         return Err(Error {
-          kind: ErrorKind::IO(err.kind()),
+          kind: ErrorKind::IO(err.to_string()),
         })
       }
     }
