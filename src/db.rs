@@ -81,14 +81,15 @@ impl Database {
     Ok(())
   }
 
-  pub fn read(path: &Path) -> Result<Database> {
-    let mut kv: HashMap<String, String> = HashMap::new();
-    let directory = PathBuf::from(path);
+  pub fn read(name: &str) -> Result<Database> {
+    let mut directory = PathBuf::from(".db");
+    directory.push(name);
     if !directory.exists() {
       return Err(Error {
         kind: ErrorKind::DoesNotExist,
       });
     }
+    let mut kv: HashMap<String, String> = HashMap::new();
     match directory.read_dir() {
       Ok(dir) => {
         for try_file in dir {
@@ -171,6 +172,12 @@ impl Serialize for String {
   }
   fn deserialize(item: &String) -> Option<Self> {
     Some(item.clone())
+  }
+}
+
+impl Serialize for &String {
+  fn serialize(&self) -> String {
+    self.to_string()
   }
 }
 
