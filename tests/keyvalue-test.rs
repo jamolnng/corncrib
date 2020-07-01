@@ -1,7 +1,5 @@
 #[cfg(test)]
 mod tests {
-  extern crate corncrib;
-
   use corncrib::Database;
   #[test]
   fn set_get_key_value() -> Result<(), String> {
