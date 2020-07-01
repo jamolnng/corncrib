@@ -4,7 +4,7 @@
 use std::collections::HashMap;
 use std::fs::OpenOptions;
 use std::io::prelude::*;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 #[derive(Debug, Clone)]
 pub struct Error {
